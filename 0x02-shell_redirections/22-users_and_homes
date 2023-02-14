@@ -1,2 +1,2 @@
 #!/bin/bash
-cat < <(sort /etc/passwd)
+cat < <(sort -k 1 /etc/passwd)
