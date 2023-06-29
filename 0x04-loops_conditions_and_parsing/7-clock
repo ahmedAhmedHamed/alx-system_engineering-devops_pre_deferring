@@ -2,16 +2,17 @@
 # shows 12 hours
 
 hour=0
-minute=1
 
 while [ $hour -le 12 ];
 do
 	echo Hour: $hour
-	echo $minute
-	((minute++))
-	if [ $minute -eq 60 ]; then
-		minute=1
-		((hour++))
-	fi
+	minute=1
+	while [ $minute -le 59 ];
+	do
+		echo $minute
+		((minute++))
+	done
+	((hour++))
+	
 done
 
