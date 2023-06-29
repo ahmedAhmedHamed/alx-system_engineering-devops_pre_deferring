@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# fizzbuzz using bash
+
+for i in {1..100};
+do
+	if [ $(expr $i % 3) -ne 0 -a $(expr $i % 5) -ne 0 ]; then
+		echo $i
+		continue
+	fi
+	if [ $(expr $i % 3) -eq 0 -a $(expr $i % 5) -eq 0 ]; then
+		echo "FizzBuzz"
+	elif [ $(expr $i % 3) -eq 0 ]; then
+		echo "Fizz"
+	elif [ $(expr $i % 5) -eq 0 ]; then
+		echo "Buzz"
+	fi
+done
+
