@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# pings command line arg 1
+ping $1
