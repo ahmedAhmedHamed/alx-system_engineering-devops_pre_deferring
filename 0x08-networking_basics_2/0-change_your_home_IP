@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# modifies the /etc/hosts file like this:
+# localhost resolves to 127.0.0.2
+# facebook.com resolves to 8.8.8.8.
+
+cp /etc/hosts ~/hosts.second
+sed -i s/^127.*localhost$/127.0.0.2\	localhost/ ~/hosts.second
+echo "8.8.8.8	facebook.com" >> ~/hosts.second
+cat ~/hosts.second > /etc/hosts
