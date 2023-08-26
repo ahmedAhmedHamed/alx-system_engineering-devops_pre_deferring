@@ -1,5 +1,5 @@
 # kills the process name killmenow
-exec {  'killkillmenow': 
+exec {  'killkillmenow':
   command => '/bin/pkill killmenow'
 }
 
