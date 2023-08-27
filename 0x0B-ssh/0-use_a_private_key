@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # connects using username ubuntu with a private key
-ssh -i ~/.ssh/holberton ubuntu@259887-web-01
+ssh -i ~/.ssh/holberton ubuntu@259887
 
