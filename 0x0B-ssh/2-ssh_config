@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# refuse to authenticate using password
+Host 35.174.209.85
+	User ubuntu
+	IdentityFile ~/.ssh/school
+	BatchMode yes
+
