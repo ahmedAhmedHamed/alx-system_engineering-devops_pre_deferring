@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+if [[ $# -eq 3 ]]
+ then
+	echo "lit";
+else
+	echo "else";
+fi
