@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# fixes a bug with apache
+echo "hello world!"
+
