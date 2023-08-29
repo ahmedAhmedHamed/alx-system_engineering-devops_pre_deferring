@@ -9,5 +9,5 @@ ufw allow "Nginx HTTP"
 
 echo "Hello World!" > /var/www/html/index.html
 
-sudo nginx -s reload
+service nginx restart
 
