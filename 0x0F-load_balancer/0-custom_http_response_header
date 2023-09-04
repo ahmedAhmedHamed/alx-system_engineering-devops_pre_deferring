@@ -1,3 +1,26 @@
 #!/usr/bin/env bash
 # makes Nginx http requests have a special header.
-sed -i "/# as directory, then fall back to displaying a 404./a \\\t\tadd_header X-Served-By \"$(hostname)\";" /etc/nginx/sites-available/default
+sudo apt update
+
+sudo apt-get install -y nginx
+
+ufw allow "Nginx HTTP"
+
+sed -i "s|server_name\ _;|server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;|" /etc/nginx/sites-available/default
+
+Location="location = /404.html {\n\t\troot /var/www/html/;\n\t\tinternal;\n"
+Error="error_page 404 /404.html;\n\t$Location"
+FullError="}\n\n\t$Error\t}"
+
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+
+sed -i "0,/}/ s|}|$FullError|" /etc/nginx/sites-available/default
+
+echo "Hello World!" > /var/www/html/index.html
+
+
+if ! sudo grep -q "add_header X-Served-By" $config_file;
+then
+	sed -i "/# as directory, then fall back to displaying a 404./a \\\t\tadd_header X-Served-By \"$(hostname)\";" /etc/nginx/nginx.conf
+fi
+service nginx restart
