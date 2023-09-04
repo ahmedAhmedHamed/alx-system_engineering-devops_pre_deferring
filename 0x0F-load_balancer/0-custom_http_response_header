@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# makes Nginx http requests have a special header.
+sed -i "/# as directory, then fall back to displaying a 404./a \\\t\tX-Served-By \"$(hostname)\";" /etc/nginx/sites-available/default
