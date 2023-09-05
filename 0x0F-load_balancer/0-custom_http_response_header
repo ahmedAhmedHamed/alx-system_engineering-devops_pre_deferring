@@ -21,6 +21,6 @@ echo "Hello World!" > /var/www/html/index.html
 
 if ! sudo grep -q "add_header X-Served-By" $config_file;
 then
-	sed -i "/# as directory, then fall back to displaying a 404./a \\\t\tadd_header X-Served-By \"$(hostname)\";" /etc/nginx/nginx.conf
+	sed -i "/http {/a \\\t\tadd_header X-Served-By \"$(hostname)\";" /etc/nginx/nginx.conf
 fi
 service nginx restart
